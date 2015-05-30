@@ -18,7 +18,7 @@ Requirements:
 
 ## Quick Use Guide
 
-  `./namebench.py -i data/shortlist.txt -z config/test.cfg`
+ `./namebench.py -i data/domain-list.txt -z config/server_sources.cfg`
 
 namebench comes with two interfaces: a simple graphical interface, and a
 more advanced command-line interface. If you have downloaded the versions
