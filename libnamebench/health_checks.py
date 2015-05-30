@@ -35,7 +35,7 @@ MAX_STORE_ATTEMPTS = 4
 TOTAL_WILDCARDS_TO_STORE = 2
 MAX_PORT_BEHAVIOR_TRIES = 2
 
-FATAL_RCODES = ['REFUSED', 'NOTAUTH']
+FATAL_RCODES = ['NOERROR', 'REFUSED', 'NOTAUTH']
 
 class NameServerHealthChecks(object):
   """Health checks for a nameserver."""
@@ -167,7 +167,7 @@ class NameServerHealthChecks(object):
     return self.TestNegativeResponse(prefix='www')
 
   def TestARootServerResponse(self):
-    return self.TestAnswers('A', 'a.root-servers.net.', '198.41.0.4', critical=True)
+    return self.TestAnswers('A', 'a.root-servers.net.', '198.41.0.4', critical=False)
 
   def TestPortBehavior(self, tries=0):
     """This is designed to be called multiple times to retry bad results."""
@@ -200,7 +200,8 @@ class NameServerHealthChecks(object):
         self.disabled = 'Unable to get uncached results for: %s' % ', '.join(attempted)
         return False
       domain = random.choice(WILDCARD_DOMAINS)
-      hostname = 'namebench%s.%s' % (random.randint(1, 2**32), domain)
+      #hostname = 'namebench%s.%s' % (random.randint(1, 2**32), domain)
+      hostname = 'www.rsreese.com.'
       attempted.append(hostname)
       response = self.TimedRequest('A', hostname, timeout=timeout)[0]
       if response and response.answer:

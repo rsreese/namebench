@@ -61,12 +61,13 @@ MAX_INITIAL_HEALTH_THREAD_COUNT = 35
 
 
 def InternalNameServers():
-  """Return list of DNS server IP's used by the host via dnspython"""
+  """Return list of DNS server IP's used by the host via dnspython
   try:
     servers = dns.resolver.Resolver().nameservers
   except:
     print "Unable to get list of internal DNS servers."
-    servers = []
+  """
+  servers = []
     
   # dnspython does not always get things right on Windows, particularly in
   # versions with right-to-left languages. Fall back to ipconfig /all

@@ -18,6 +18,8 @@ Requirements:
 
 ## Quick Use Guide
 
+  `./namebench.py -i data/shortlist.txt -z config/test.cfg`
+
 namebench comes with two interfaces: a simple graphical interface, and a
 more advanced command-line interface. If you have downloaded the versions
 for Mac OS X and Windows, you will get the graphical interface by default.
