@@ -16,7 +16,7 @@ Requirements:
   * Python 2.4 - 2.6. If you are using Mac OS X or Linux, this is
     built-in. Otherwise, visit http://www.python.org/
 
---[ quick use guide ]---------------------------------------------------------
+## Quick Use Guide
 
 namebench comes with two interfaces: a simple graphical interface, and a
 more advanced command-line interface. If you have downloaded the versions
@@ -36,7 +36,7 @@ to the command-line, or edit namebench.cfg:
 
   ./namebench.py 10.0.0.1 192.168.0.1
 
---[ credit ]------------------------------------------------------------------
+## Credit
 
 namebench includes some wonderful third party software:
 
@@ -51,8 +51,8 @@ namebench includes some wonderful third party software:
 For licensing information, see the LICENSE file within the appropriate
 subdirectory.
 
---[ options ]-----------------------------------------------------------------
-
+## Options
+```
 Usage: namebench.py [options]
 
 Options:
@@ -107,8 +107,9 @@ Options:
                         Enable censorship checks
   -6, --ipv6_only       Only include IPv6 name servers
   -O, --only            Only test nameservers passed as arguments
+```
 
-## sample output
+## Sample Output
 ```
 namebench 1.3b1 - best history source (automatic) on 2010-05-27 08:34:46.585534
 threads=40/2 queries=250 runs=1 timeout=3.5 health_timeout=3.75 servers=11
@@ -214,7 +215,7 @@ In this test, Your current primary DNS server is Fastest
 - Saving detailed results to /tmp/namebench_2010-05-27_0842.csv
 
 ```
---[ FAQ ]-----------------------------------------------------------------------
+## FAQ
 
 See http://code.google.com/p/namebench/wiki/FAQ for more recent updates.
 
@@ -255,6 +256,3 @@ See http://code.google.com/p/namebench/wiki/FAQ for more recent updates.
 
   It means the specified nameserver was too slow to answer you. If all of your
   nameservers are timing out, try restarting namebench.py with -Y 4
-
-
-
