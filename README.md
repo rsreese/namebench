@@ -108,8 +108,8 @@ Options:
   -6, --ipv6_only       Only include IPv6 name servers
   -O, --only            Only test nameservers passed as arguments
 
---[ sample output ]-------------------------------------------------------------
-
+## sample output
+```
 namebench 1.3b1 - best history source (automatic) on 2010-05-27 08:34:46.585534
 threads=40/2 queries=250 runs=1 timeout=3.5 health_timeout=3.75 servers=11
 ------------------------------------------------------------------------------
@@ -213,7 +213,7 @@ In this test, Your current primary DNS server is Fastest
 - Saving report to /tmp/namebench_2010-05-27_0842.html
 - Saving detailed results to /tmp/namebench_2010-05-27_0842.csv
 
-
+```
 --[ FAQ ]-----------------------------------------------------------------------
 
 See http://code.google.com/p/namebench/wiki/FAQ for more recent updates.
