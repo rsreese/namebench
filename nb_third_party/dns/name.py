@@ -1,4 +1,4 @@
-# Copyright (C) 2001-2007, 2009, 2010 Nominum, Inc.
+# Copyright (C) 2001-2007, 2009-2011 Nominum, Inc.
 #
 # Permission to use, copy, modify, and distribute this software and its
 # documentation for any purpose with or without fee is hereby granted,
@@ -24,11 +24,13 @@
 import cStringIO
 import struct
 import sys
+import copy
 
 if sys.hexversion >= 0x02030000:
     import encodings.idna
 
 import dns.exception
+import dns.wiredata
 
 NAMERELN_NONE = 0
 NAMERELN_SUPERDOMAIN = 1
@@ -86,8 +88,10 @@ _escaped = {
     '$' : True
     }
 
-def _escapify(label):
+def _escapify(label, unicode_mode=False):
     """Escape the characters in label which need it.
+    @param unicode_mode: escapify only special and whitespace (<= 0x20)
+    characters
     @returns: the escaped string
     @rtype: string"""
     text = ''
@@ -97,7 +101,10 @@ def _escapify(label):
         elif ord(c) > 0x20 and ord(c) < 0x7F:
             text += c
         else:
-            text += '\\%03d' % ord(c)
+            if unicode_mode and ord(c) >= 0x7F:
+                text += c
+            else:
+                text += '\\%03d' % ord(c)
     return text
 
 def _validate_labels(labels):
@@ -147,6 +154,12 @@ class Name(object):
 
     def __setattr__(self, name, value):
         raise TypeError("object doesn't support attribute assignment")
+
+    def __copy__(self):
+        return Name(self.labels)
+
+    def __deepcopy__(self, memo):
+        return Name(copy.deepcopy(self.labels, memo))
 
     def is_absolute(self):
         """Is the most significant label of this name the root label?
@@ -344,7 +357,7 @@ class Name(object):
             l = self.labels[:-1]
         else:
             l = self.labels
-        s = u'.'.join([encodings.idna.ToUnicode(_escapify(x)) for x in l])
+        s = u'.'.join([_escapify(encodings.idna.ToUnicode(x), True) for x in l])
         return s
 
     def to_digestable(self, origin=None):
@@ -418,7 +431,7 @@ class Name(object):
             else:
                 if not compress is None and len(n) > 1:
                     pos = file.tell()
-                    if pos < 0xc000:
+                    if pos <= 0x3fff:
                         compress[n] = pos
                 l = len(label)
                 file.write(chr(l))
@@ -670,6 +683,7 @@ def from_wire(message, current):
 
     if not isinstance(message, str):
         raise ValueError("input to from_wire() must be a byte string")
+    message = dns.wiredata.maybe_wrap(message)
     labels = []
     biggest_pointer = current
     hops = 0
@@ -678,7 +692,7 @@ def from_wire(message, current):
     cused = 1
     while count != 0:
         if count < 64:
-            labels.append(message[current : current + count])
+            labels.append(message[current : current + count].unwrap())
             current += count
             if hops == 0:
                 cused += count

@@ -1,4 +1,4 @@
-# Copyright (C) 2003-2007, 2009, 2010 Nominum, Inc.
+# Copyright (C) 2003-2007, 2009-2011 Nominum, Inc.
 #
 # Permission to use, copy, modify, and distribute this software and its
 # documentation for any purpose with or without fee is hereby granted,
@@ -118,6 +118,8 @@ class APL(dns.rdata.Rdata):
     def from_wire(cls, rdclass, rdtype, wire, current, rdlen, origin = None):
         items = []
         while 1:
+            if rdlen == 0:
+                break
             if rdlen < 4:
                 raise dns.exception.FormError
             header = struct.unpack('!HBB', wire[current : current + 4])
@@ -131,7 +133,7 @@ class APL(dns.rdata.Rdata):
             rdlen -= 4
             if rdlen < afdlen:
                 raise dns.exception.FormError
-            address = wire[current : current + afdlen]
+            address = wire[current : current + afdlen].unwrap()
             l = len(address)
             if header[0] == 1:
                 if l < 4:
@@ -151,8 +153,6 @@ class APL(dns.rdata.Rdata):
             rdlen -= afdlen
             item = APLItem(header[0], negation, address, header[1])
             items.append(item)
-            if rdlen == 0:
-                break
         return cls(rdclass, rdtype, items)
 
     from_wire = classmethod(from_wire)
