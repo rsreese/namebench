@@ -4,7 +4,7 @@ namebench runs on Mac OS X, Windows, and UNIX, and is available with a graphical
 
 Requirements:
 
-  * You have added your domains records to the name server to use, e.g. `dig www.domain.com @nameserverIP` will resolve.
+  * You have added your domains records to the name server to use, e.g. `dig www.domain.com @nameserver` will resolve for each respective name server you plan to test.
   * Python 2.4 - 2.7. If you are using Mac OS X or Linux, this is built-in. Otherwise, visit http://www.python.org/ **Only tested using Python 2.7.x on Debian Linux and OS X.**
 
 ## Quick Use Guide
