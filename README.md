@@ -1,15 +1,7 @@
-Are you a power-user with 5 minutes to spare? Do you want a faster internet
-experience?
+namebench hunts down the fastest DNS servers available for your web site domain to use. namebench runs a fair and thorough benchmark using datasets in order to
+provide an individualized recommendation. namebench is completely free and does not modify your system in any way. This project began as a 20% project at Google.
 
-Try out namebench. It hunts down the fastest DNS servers available for your
-computer to use. namebench runs a fair and thorough benchmark using your web
-browser history, tcpdump output, or standardized datasets in order to
-provide an individualized recommendation. namebench is completely free and
-does not modify your system in any way. This project began as a 20% project
-at Google.
-
-namebench runs on Mac OS X, Windows, and UNIX, and is available with a
-graphical user interface as well as a command-line interface. 
+namebench runs on Mac OS X, Windows, and UNIX, and is available with a graphical user interface as well as a command-line interface. 
 
 Requirements:
 
@@ -18,25 +10,13 @@ Requirements:
 
 ## Quick Use Guide
 
- `./namebench.py -i data/domain-list.txt -z config/server_sources.cfg`
+Edit `data/domain-list.txt` and `config/server_sources.cfg` and run:
+
+ `./namebench.py -i data/domain-list.txt -z config/server_sources.cfg -x`
 
 namebench comes with two interfaces: a simple graphical interface, and a
 more advanced command-line interface. If you have downloaded the versions
 for Mac OS X and Windows, you will get the graphical interface by default.
-
-Most people will simply want to run this software with no arguments:
-
-  ./namebench.py
-
-On UNIX, if you have python-tk installed, a graphical interface will pop up.
-If you would like to force use of the command-line, use -x:
-
-  ./namebench.py -x
-
-If you want to specify an additional set of name services, simply add the IP
-to the command-line, or edit namebench.cfg:
-
-  ./namebench.py 10.0.0.1 192.168.0.1
 
 ## Credit
 
