@@ -1,10 +1,11 @@
-namebench hunts down the fastest DNS servers available for your web site domain to use. This assumes you have added your domains records to the name server to use, e.g. `dig www.domain.com @nameserverIP` will resolve. namebench runs a fair and thorough benchmark using datasets in order to provide an individualized recommendation. namebench is completely free and does not modify your system in any way. This project began as a 20% project at Google but has been modified to assess name servers of a specified host verse finding optimal name servers for general DNS resolution.
+namebench assesses a list of DNS servers you provide in order to determine which provide the fastest responses. namebench runs a fair and thorough benchmark using datasets in order to provide an individualized recommendation. This project began as a 20% project at Google **but has been modified to assess name servers of a specified host verse finding optimal name servers for general DNS resolution.**
 
 namebench runs on Mac OS X, Windows, and UNIX, and is available with a graphical user interface as well as a command-line interface. **GUI not supported with this version at the moment.**
 
 Requirements:
 
-  * Python 2.4 - 2.6. If you are using Mac OS X or Linux, this is built-in. Otherwise, visit http://www.python.org/ **Only tested using Python 2.7.x on Debian Linux.**
+  * You have added your domains records to the name server to use, e.g. `dig www.domain.com @nameserverIP` will resolve.
+  * Python 2.4 - 2.7. If you are using Mac OS X or Linux, this is built-in. Otherwise, visit http://www.python.org/ **Only tested using Python 2.7.x on Debian Linux and OS X.**
 
 ## Quick Use Guide
 
