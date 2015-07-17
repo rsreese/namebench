@@ -1,7 +1,6 @@
-namebench hunts down the fastest DNS servers available for your web site domain to use. namebench runs a fair and thorough benchmark using datasets in order to
-provide an individualized recommendation. namebench is completely free and does not modify your system in any way. This project began as a 20% project at Google.
+namebench hunts down the fastest DNS servers available for your web site domain to use. This assumes you have added your domains records to the name server to use, e.g. `dig www.domain.com @nameserverIP` will resolve. namebench runs a fair and thorough benchmark using datasets in order to provide an individualized recommendation. namebench is completely free and does not modify your system in any way. This project began as a 20% project at Google but has been modified to assess name servers of a specified host verse finding optimal name servers for general DNS resolution.
 
-namebench runs on Mac OS X, Windows, and UNIX, and is available with a graphical user interface as well as a command-line interface. 
+namebench runs on Mac OS X, Windows, and UNIX, and is available with a graphical user interface as well as a command-line interface. GUI not supported with this version at the moment.
 
 Requirements:
 
@@ -14,9 +13,7 @@ Edit `data/domain-list.txt` and `config/server_sources.cfg` and run:
 
  `sudo ./namebench.py -i data/domain-list.txt -z config/server_sources.cfg -x`
 
-namebench comes with two interfaces: a simple graphical interface, and a
-more advanced command-line interface. If you have downloaded the versions
-for Mac OS X and Windows, you will get the graphical interface by default.
+namebench comes with two interfaces: a simple graphical interface, and a more advanced command-line interface. If you have downloaded the versions for Mac OS X and Windows, you will get the graphical interface by default. GUI not supported with this version at the moment.
 
 ## Credit
 
@@ -30,8 +27,7 @@ namebench includes some wonderful third party software:
  * simplejson 2.1.1 (http://code.google.com/p/simplejson/)
  * Crystal SVG icons (http://www.everaldo.com/crystal/)
 
-For licensing information, see the LICENSE file within the appropriate
-subdirectory.
+For licensing information, see the LICENSE file within the appropriate subdirectory.
 
 ## Options
 ```
@@ -217,17 +213,16 @@ nameserver 216.66.1.2      # HE 4
 nameserver 216.218.131.2   # HE 2
 nameserver 216.66.80.18    # HE 5
 
-
-
 ********************************************************************************
 In this test, HE 4 is 3.2%: Faster
 ********************************************************************************
-
 
 - Saving report to /tmp/namebench_2015-07-17_1851.html
 - Saving detailed results to /tmp/namebench_2015-07-17_1851.csv
 ```
 ## FAQ
+
+Most of these are likely not relevant to this modified version.
 
 See http://code.google.com/p/namebench/wiki/FAQ for more recent updates.
 
