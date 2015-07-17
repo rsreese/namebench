@@ -35,7 +35,7 @@ MAX_STORE_ATTEMPTS = 4
 TOTAL_WILDCARDS_TO_STORE = 2
 MAX_PORT_BEHAVIOR_TRIES = 2
 
-FATAL_RCODES = ['NOERROR', 'REFUSED', 'NOTAUTH']
+FATAL_RCODES = ['NXDOMAIN', 'NOERROR', 'REFUSED', 'NOTAUTH']
 
 class NameServerHealthChecks(object):
   """Health checks for a nameserver."""
