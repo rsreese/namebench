@@ -9,7 +9,7 @@ Requirements:
 
 ## Quick Use Guide
 
-Edit `data/domain-list.txt` and `config/server_sources.cfg` and run:
+Edit `data/domain-list.txt` and the `[global]` section of `config/server_sources.cfg` with the name servers you want to benchmark. Then run:
 
  `sudo ./namebench.py -i data/domain-list.txt -z config/server_sources.cfg -x`
 
