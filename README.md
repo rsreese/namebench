@@ -1,11 +1,10 @@
 namebench hunts down the fastest DNS servers available for your web site domain to use. This assumes you have added your domains records to the name server to use, e.g. `dig www.domain.com @nameserverIP` will resolve. namebench runs a fair and thorough benchmark using datasets in order to provide an individualized recommendation. namebench is completely free and does not modify your system in any way. This project began as a 20% project at Google but has been modified to assess name servers of a specified host verse finding optimal name servers for general DNS resolution.
 
-namebench runs on Mac OS X, Windows, and UNIX, and is available with a graphical user interface as well as a command-line interface. GUI not supported with this version at the moment.
+namebench runs on Mac OS X, Windows, and UNIX, and is available with a graphical user interface as well as a command-line interface. **GUI not supported with this version at the moment.**
 
 Requirements:
 
-  * Python 2.4 - 2.6. If you are using Mac OS X or Linux, this is
-    built-in. Otherwise, visit http://www.python.org/
+  * Python 2.4 - 2.6. If you are using Mac OS X or Linux, this is built-in. Otherwise, visit http://www.python.org/ **Only tested using Python 2.7.x on Debian Linux.**
 
 ## Quick Use Guide
 
@@ -13,7 +12,7 @@ Edit `data/domain-list.txt` and the `[global]` section of `config/server_sources
 
  `sudo ./namebench.py -i data/domain-list.txt -z config/server_sources.cfg -x`
 
-namebench comes with two interfaces: a simple graphical interface, and a more advanced command-line interface. If you have downloaded the versions for Mac OS X and Windows, you will get the graphical interface by default. GUI not supported with this version at the moment.
+namebench comes with two interfaces: a simple graphical interface, and a more advanced command-line interface. If you have downloaded the versions for Mac OS X and Windows, you will get the graphical interface by default. **GUI not supported with this version at the moment.**
 
 ## Credit
 
@@ -222,7 +221,7 @@ In this test, HE 4 is 3.2%: Faster
 ```
 ## FAQ
 
-Most of these are likely not relevant to this modified version.
+**Most of these are likely not relevant to this modified version.**
 
 See http://code.google.com/p/namebench/wiki/FAQ for more recent updates.
 
